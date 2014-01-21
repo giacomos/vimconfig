@@ -27,7 +27,7 @@ set textwidth=0                 " don't wrap words
 set undolevels=1000             " 1000 undo levels
 set wildchar=<Tab>              " Expand the command line using tab
 set wildmenu
-colorscheme wombat-256mod       " set default colorscheme
+colorscheme wombat256mod       " set default colorscheme
 
 syntax on
 "set paste

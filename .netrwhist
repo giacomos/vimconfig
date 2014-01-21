@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/jack/workspace/Clients/regione-er/assemblea_legislativa/versions'
+let g:netrw_dirhist_2='/home/jack/workspace/zope/plone43/src/Products.TinyMCE/Products/TinyMCE/browser'
+let g:netrw_dirhist_3='/home/jack/workspace/zope/plone43/src/Products.TinyMCE/Products/TinyMCE/profiles'
+let g:netrw_dirhist_4='/home/jack/workspace/substanced/parts'

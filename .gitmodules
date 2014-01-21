@@ -19,9 +19,6 @@
 [submodule "bundle/Syntastic"]
 	path = bundle/Syntastic
     url = https://github.com/vim-scripts/Syntastic.git
-[submodule "bundle/vundle"]
-	path = bundle/vundle
-    url = git@github.com:gmarik/vundle.git
 [submodule "bundle/superSnipMate"]
 	path = bundle/superSnipMate
     url = https://github.com/vim-scripts/superSnipMate.git
@@ -49,3 +46,6 @@
 [submodule "bundle/wombat256.vim"]
 	path = bundle/wombat256.vim
     url = https://github.com/vim-scripts/wombat256.vim.git
+[submodule "bundle/vundle"]
+	path = bundle/vundle
+	url = git@github.com:gmarik/vundle.git

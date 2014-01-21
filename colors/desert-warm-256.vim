@@ -1,0 +1,1 @@
+/home/jack/.vim/bundle/desert-warm-256/colors/desert-warm-256.vim

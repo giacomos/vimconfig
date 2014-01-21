@@ -49,3 +49,6 @@
 [submodule "bundle/vundle"]
 	path = bundle/vundle
 	url = git@github.com:gmarik/vundle.git
+[submodule "bundle/vim-flake8"]
+	path = bundle/vim-flake8
+	url = git@github.com:vim-scripts/vim-flake8.git

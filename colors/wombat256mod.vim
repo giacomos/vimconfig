@@ -1,1 +1,0 @@
-/home/jack/.vim/bundle/wombat256.vim/colors/wombat256mod.vim

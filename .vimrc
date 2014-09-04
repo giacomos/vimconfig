@@ -146,23 +146,39 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here (original repos on github):
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'gmarik/sudo-gui.vim'
+" Bundle "vim-scripts/snippetsEmu"
+" Bundle 'klen/python-mode'
+" Bundle 'stephenmckinney/vim-solarized-powerline'
 " snipMate  https://github.com/garbas/vim-snipmate
+"Bundle "zedr/zope-snipmate-bundle"
 Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+Bundle "PotatoesMaster/i3-vim-syntax"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
-"Bundle "zedr/zope-snipmate-bundle"
-" Bundle "vim-scripts/snippetsEmu"
+Bundle "scrooloose/syntastic"
 Bundle "sjl/gundo.vim"
-Bundle "PotatoesMaster/i3-vim-syntax"
-" Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle "tomtom/tlib_vim"
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'airblade/vim-gitgutter'
+Bundle 'gmarik/sudo-gui.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'giacomos/zope-snipmate-bundle'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_enable_signs=1
+"let g:syntastic_auto_jump=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checker_args='--ignore=E501,E225'
+let g:syntastic_python_flake8_args = '--ignore=E501'
+" Use jshint (uses ~/.jshintrc)
+let g:syntastic_javascript_checkers = ['jshint']
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -201,34 +217,48 @@ let g:Powerline_colorscheme='solarized256_dark'
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
 
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
 
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "flake8,pyflakes,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
-
-" Support virtualenv
-let g:pymode_virtualenv = 1
-
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-" Don't autofold code
-let g:pymode_folding = 0
-" Enable pymode indentation
-let g:pymode_indent = 1
+" " Turn on code checking 
+" let g:pymode = 1
+" " let g:pymode_rope = 1
+" " Check code on every save (every)
+" let g:pymode_lint_unmodified = 1
+" " let g:pymode_lint_on_write = 1
+" " Show error message if cursor placed at the error line
+" let g:pymode_lint_message = 1
+" 
+" " Documentation
+" let g:pymode_doc = 1
+" let g:pymode_doc_key = 'K'
+" 
+" "Linting
+" let g:pymode_lint = 1
+" " Default code checkers (you could set several) *'g:pymode_lint_checkers'*
+" let g:pymode_lint_checkers = ['flake8', 'pyflakes', 'pep8', 'mccabe', 'pylint']
+" " Auto check on save
+" let g:pymode_lint_write = 1
+" 
+" " Support virtualenv
+" let g:pymode_virtualenv = 1
+" 
+" " Enable breakpoints plugin
+" let g:pymode_breakpoint = 1
+" let g:pymode_breakpoint_key = '<leader>b'
+" 
+" " syntax highlighting
+" let g:pymode_syntax = 1
+" let g:pymode_syntax_all = 1
+" let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+" let g:pymode_syntax_space_errors = g:pymode_syntax_all
+" " Don't autofold code
+" let g:pymode_folding = 0
+" " Enable pymode indentation
+" let g:pymode_indent = 1
+" " Option: g:pymode_lint_config -- str. Path to pylint config file
+" let g:pymode_lint_config = '/home/jack/.pylintrc'
+" " OPTION: g:pymode_lint_ignore -- string. Skip errors and warnings (e.g. " E4,W)
+" let g:pymode_lint_ignore = "W0201"
 
 " Switch line with the one above or below
 nmap <C-Up> ddkP
@@ -253,9 +283,33 @@ highlight SpecialKey guifg=#4a4a59
 highlight Search ctermfg=154
 
 :nmap <leader>c m`b~``<CR>
+"source /home/jack/.vim/bundle/vim-flake8/ftplugin/python_flake8.vim
+" autocmd BufWritePost *.py call Flake8()
 let g:flake8_builtins="_,apply"
-source /home/jack/.vim/bundle/vim-flake8/ftplugin/python_flake8.vim
-autocmd BufWritePost *.py call Flake8()
 let g:flake8_ignore="E501,E128,E702"
 let g:flake8_max_complexity=10
 map <leader>g :GundoToggle<CR>
+
+"" Add the virtualenv's site-packages to vim path
+"py << EOF
+"import os.path
+"import sys
+"import vim
+"if 'VIRTUAL_ENV' in os.environ:
+"    project_base_dir = os.environ['VIRTUAL_ENV']
+"    sys.path.insert(0, project_base_dir)
+"    activate_this = os.path.join(project_base_dir,
+"    'bin/activate_this.py')
+"    execfile(activate_this, dict(__file__=activate_this))
+"EOF
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when xterm-keys is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+au BufNewFile,BufRead *.pt set filetype=html.pt
+au BufNewFile,BufRead *.zcml set filetype=xml.zcml

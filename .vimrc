@@ -1,3 +1,4 @@
+set nocompatible                " enable all features. This must be first, because it changes other options as a side effect.
 " set autoindent                  " guess indentation
 set autowrite                   " write before hiding a buffer
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
@@ -10,31 +11,78 @@ set cursorcolumn                " this will highlight the current column
 set expandtab                   " spaces instead of tabs
 set gcr=n:blinkon0              " disable cursor blinking
 set history=100                 " keep 50 lines of command line history
+set visualbell                  " No sounds
+set autoread                    "Reload files changed outside vim
 set hlsearch                    " highlight the searchterms
 set ignorecase                  " ignore case while searching
 set incsearch                   " jump to the matches while typing
 set laststatus=2                "Always display a status line at the bottom of the window
-set listchars=tab:▸\ ,eol:¬     " Use the same symbols as TextMate for tabstops and EOLs
-set nocompatible                " enable all features
-set nowrap                      " Wrap too long lines
 set number                      " show line numbers
 set ruler                       " show the cursor position all the time
-set shiftwidth=4                " (Auto)indent uses 4 characters
 set showcmd                     " display incomplete commands
 set showmatch                   " show matching braces
-set tabstop=4                   " Tabs are 4 characters
 set textwidth=0                 " don't wrap words
 set undolevels=1000             " 1000 undo levels
 set wildchar=<Tab>              " Expand the command line using tab
 set wildmenu
 colorscheme wombat256mod       " set default colorscheme
+let mapleader="\\"             " Change leader to a \
 
-syntax on
-"set paste
+if filereadable(expand("~/.vim/vundles.vim"))
+  source ~/.vim/vundles.vim
+endif
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4                " (Auto)indent uses 4 characters
+set softtabstop=2
+set tabstop=4                   " Tabs are 4 characters
+set expandtab
+
+filetype plugin on
+filetype indent on
+
+set listchars=tab:▸\ ,eol:¬,trail:·     " Use the same symbols as TextMate for tabstops and EOLs
+
+set nowrap                      " Don't wrap lines that are too long
+set linebreak                   " Wrap lines at convenient points
+
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+" ==================================================
+
+syntax on "turn on syntax highlighting
+" set paste
 set noautoindent
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
+endif
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 "" change cursor color in insert-mode
@@ -113,12 +161,12 @@ endif " has("autocmd")
   \ endif
 
 
-" map T :TlistToggle<CR> 
+" map T :TlistToggle<CR>
 " add a mapping to NerdTree to SHIFT-n
 map B :NERDTreeToggle<CR>
 
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
-set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\ 
+set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
 
 " highlight char after the 80 column
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -130,40 +178,21 @@ set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
   highlight ColorColumn ctermbg=DarkGray ctermfg=154
 "endif
 
-" add zpt highlight
-au BufNewFile,BufRead *.pt set filetype=xml
-au BufNewFile,BufRead *.less set filetype=less
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-snippets config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Snippets variables
+let g:snips_author='Giacomo Spettoli'
+let g:author='Giacomo Spettoli'
+let g:snips_email= 'giacomo.spettoli@gmail.com'
+let g:email='giacomo.spettoli@gmail.com'
+let g:snips_github='https://github.com/giacomos'
+let g:github='https://github.com/giacomos'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VUNDLE CONFIG
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-" My Bundles here (original repos on github):
-" Bundle "vim-scripts/snippetsEmu"
-" Bundle 'klen/python-mode'
-" Bundle 'stephenmckinney/vim-solarized-powerline'
-" snipMate  https://github.com/garbas/vim-snipmate
-"Bundle "zedr/zope-snipmate-bundle"
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "PotatoesMaster/i3-vim-syntax"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle "scrooloose/syntastic"
-Bundle "sjl/gundo.vim"
-Bundle "tomtom/tlib_vim"
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'airblade/vim-gitgutter'
-Bundle 'gmarik/sudo-gui.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'giacomos/zope-snipmate-bundle'
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntastic config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_enable_signs=1
 "let g:syntastic_auto_jump=1
@@ -180,20 +209,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 120
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%80v.*/
-    autocmd FileType python set nowrap
-augroup END
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline setup
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filetype off                   " required!
 set laststatus=2
 set encoding=utf-8
@@ -201,7 +221,7 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 " Python-mode
@@ -219,7 +239,7 @@ let g:Powerline_colorscheme='solarized256_dark'
 " ]M            Jump on next class or method (normal, visual, operator modes)
 
 
-" " Turn on code checking 
+" " Turn on code checking
 " let g:pymode = 1
 " " let g:pymode_rope = 1
 " " Check code on every save (every)
@@ -227,25 +247,25 @@ let g:Powerline_colorscheme='solarized256_dark'
 " " let g:pymode_lint_on_write = 1
 " " Show error message if cursor placed at the error line
 " let g:pymode_lint_message = 1
-" 
+"
 " " Documentation
 " let g:pymode_doc = 1
 " let g:pymode_doc_key = 'K'
-" 
+"
 " "Linting
 " let g:pymode_lint = 1
 " " Default code checkers (you could set several) *'g:pymode_lint_checkers'*
 " let g:pymode_lint_checkers = ['flake8', 'pyflakes', 'pep8', 'mccabe', 'pylint']
 " " Auto check on save
 " let g:pymode_lint_write = 1
-" 
+"
 " " Support virtualenv
 " let g:pymode_virtualenv = 1
-" 
+"
 " " Enable breakpoints plugin
 " let g:pymode_breakpoint = 1
 " let g:pymode_breakpoint_key = '<leader>b'
-" 
+"
 " " syntax highlighting
 " let g:pymode_syntax = 1
 " let g:pymode_syntax_all = 1
@@ -311,5 +331,14 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+" add zpt highlight
 au BufNewFile,BufRead *.pt set filetype=html.pt
 au BufNewFile,BufRead *.zcml set filetype=xml.zcml
+
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%80v.*/
+    autocmd FileType python set nowrap
+augroup END

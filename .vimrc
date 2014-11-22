@@ -5,18 +5,18 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 set backupdir=~/.tmp            " set the default directory for backup files (*~)
 set bg=dark                     " we use a dark background, don't we?
 set completeopt=menuone,longest " Always show the menu, insert longest match
-set colorcolumn=81              " colorize the N column
+set colorcolumn=80              " colorize the N column
 set cursorline                  " this will highlight the current line
 set cursorcolumn                " this will highlight the current column
 set expandtab                   " spaces instead of tabs
 set gcr=n:blinkon0              " disable cursor blinking
-set history=100                 " keep 50 lines of command line history
+set history=1000                " keep 1000 lines of command line history
 set visualbell                  " No sounds
-set autoread                    "Reload files changed outside vim
+set autoread                    " Reload files changed outside vim
 set hlsearch                    " highlight the searchterms
 set ignorecase                  " ignore case while searching
 set incsearch                   " jump to the matches while typing
-set laststatus=2                "Always display a status line at the bottom of the window
+set laststatus=2                " Always display a status line at the bottom of the window
 set number                      " show line numbers
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
@@ -25,9 +25,13 @@ set textwidth=0                 " don't wrap words
 set undolevels=1000             " 1000 undo levels
 set wildchar=<Tab>              " Expand the command line using tab
 set wildmenu
+set list
 colorscheme wombat256mod       " set default colorscheme
 let mapleader="\\"             " Change leader to a \
 
+" =============== Vundle Initialization ===============
+" This loads all the plugins specified in ~/.vim/vundles.vim
+" Use Vundle plugin to manage all other plugins
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
@@ -35,16 +39,16 @@ endif
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-if has('persistent_undo')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
-  set undofile
-endif
+"if has('persistent_undo')
+"  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+"  set undodir=~/.vim/backups
+"  set undofile
+"endif
 
 " ================ Indentation ======================
 
-set autoindent
-set smartindent
+" set autoindent
+" set smartindent
 set smarttab
 set shiftwidth=4                " (Auto)indent uses 4 characters
 set softtabstop=2
@@ -52,7 +56,7 @@ set tabstop=4                   " Tabs are 4 characters
 set expandtab
 
 filetype plugin on
-filetype indent on
+filetype indent off
 
 set listchars=tab:▸\ ,eol:¬,trail:·     " Use the same symbols as TextMate for tabstops and EOLs
 
@@ -71,6 +75,7 @@ set nofoldenable        "dont fold by default
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
 " ==================================================
 
 syntax on "turn on syntax highlighting
@@ -208,6 +213,7 @@ let g:syntastic_warning_symbol = '!'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+" let g:loaded_syntastic_css_csslint_checker = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -217,7 +223,7 @@ set statusline+=%*
 "filetype off                   " required!
 set laststatus=2
 set encoding=utf-8
-set t_Co=256
+set t_Co=256  " this enables 256 colors
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
@@ -260,7 +266,7 @@ let g:Powerline_colorscheme='solarized256_dark'
 " let g:pymode_lint_write = 1
 "
 " " Support virtualenv
-" let g:pymode_virtualenv = 1
+let g:pymode_virtualenv = 1
 "
 " " Enable breakpoints plugin
 " let g:pymode_breakpoint = 1
@@ -311,17 +317,17 @@ let g:flake8_max_complexity=10
 map <leader>g :GundoToggle<CR>
 
 "" Add the virtualenv's site-packages to vim path
-"py << EOF
-"import os.path
-"import sys
-"import vim
-"if 'VIRTUAL_ENV' in os.environ:
-"    project_base_dir = os.environ['VIRTUAL_ENV']
-"    sys.path.insert(0, project_base_dir)
-"    activate_this = os.path.join(project_base_dir,
-"    'bin/activate_this.py')
-"    execfile(activate_this, dict(__file__=activate_this))
-"EOF
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir,
+    'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on
@@ -342,3 +348,4 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%80v.*/
     autocmd FileType python set nowrap
 augroup END
+

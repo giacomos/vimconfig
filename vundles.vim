@@ -17,6 +17,7 @@ call vundle#rc('$HOME/.vim/bundle/')
 Bundle 'gmarik/Vundle.vim'
 
 " My Bundles here (original repos on github):
+
 " Bundle "vim-scripts/snippetsEmu"
 " Bundle 'klen/python-mode'
 " Bundle 'stephenmckinney/vim-solarized-powerline'
@@ -36,11 +37,10 @@ Bundle 'gmarik/sudo-gui.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'zeis/vim-kolor'
-" is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-Bundle 'tpope/vim-surround'
-" The Command-T plug-in provides an extremely fast, intuitive mechanism for opening files and buffers with a minimal number of keystrokes
-Bundle 'wincent/Command-T'
+Bundle 'tpope/vim-surround'  " is all about surroundings: parentheses, brackets, quotes, XML tags, and more
+" Bundle 'wincent/Command-T'  " opening files and buffers with a minimal number of keystrokes
 Bundle 'tmhedberg/SimpylFold'
+Bundle 'sjl/gundo.vim'  " plugin to visualize your Vim undo tree
 
 " All of your Plugins must be added before the following line
 filetype plugin on

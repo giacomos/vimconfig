@@ -11,38 +11,36 @@
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#rc('$HOME/.vim/bundle/')
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here (original repos on github):
-
-" Bundle "vim-scripts/snippetsEmu"
-" Bundle 'klen/python-mode'
-" Bundle 'stephenmckinney/vim-solarized-powerline'
-" snipMate  https://github.com/garbas/vim-snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "PotatoesMaster/i3-vim-syntax"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle "scrooloose/syntastic"
-Bundle "sjl/gundo.vim"
-Bundle "tomtom/tlib_vim"
-Bundle "zedr/zope-snipmate-bundle"
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'airblade/vim-gitgutter'
-Bundle 'giacomos/zope-snipmate-bundle'
-Bundle 'gmarik/sudo-gui.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'zeis/vim-kolor'
-Bundle 'tpope/vim-surround'  " is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-" Bundle 'wincent/Command-T'  " opening files and buffers with a minimal number of keystrokes
-Bundle 'tmhedberg/SimpylFold'
-Bundle 'sjl/gundo.vim'  " plugin to visualize your Vim undo tree
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'zedr/zope-snipmate-bundle'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'airblade/vim-gitgutter'
+"Plugin 'giacomos/zope-snipmate-bundle'
+Plugin 'gmarik/sudo-gui.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'zeis/vim-kolor'
+" is all about surroundings: parentheses, brackets, quotes, XML tags, and more
+Plugin 'tpope/vim-surround'
+" The Command-T plug-in provides an extremely fast, intuitive mechanism for opening files and buffers with a minimal number of keystrokes
+Plugin 'wincent/Command-T'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
+call vundle#end()            " required
 filetype plugin on
 filetype indent off
 "

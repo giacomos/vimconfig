@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/jack/workspace/Clients/regione-er/assemblea_legislativa/versions'
-let g:netrw_dirhist_2='/home/jack/workspace/zope/plone43/src/Products.TinyMCE/Products/TinyMCE/browser'
-let g:netrw_dirhist_3='/home/jack/workspace/zope/plone43/src/Products.TinyMCE/Products/TinyMCE/profiles'
-let g:netrw_dirhist_4='/home/jack/workspace/substanced/parts'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/jack/dev/plone/demo/eggs/plone.openid-2.0.4-py2.7.egg/EGG-INFO'
+let g:netrw_dirhist_2='/home/jack/dev/plone/demo/eggs/plone.openid-2.0.4-py2.7.egg'
+let g:netrw_dirhist_3='/home/jack/dev/plone/demo/eggs/plone.openid-2.0.4-py2.7.egg/EGG-INFO'
+let g:netrw_dirhist_4='/home/jack/dev/clients/lanni/odoo.buildout/src/hr_sub_contracting_lanni/l10n_it_DDT_webkit_lanni/report'
+let g:netrw_dirhist_5='/home/jack/dev/clients/lanni/odoo.buildout/src/hr_sub_contracting_lanni/l10n_it_DDT_webkit_lanni/views'
+let g:netrw_dirhist_6='/home/jack/dev/clients/tvp/odoo7.buildout/parts/addons/sale/security'
+let g:netrw_dirhist_7='/home/jack/dev/clients/sti/odoo.buildout/src/grupposti_int/models'
+let g:netrw_dirhist_8='/home/jack/dev/clients/lanni/odoo.buildout/src/hr_sub_contracting_lanni/stock_picking_reopen'

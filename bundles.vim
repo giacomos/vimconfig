@@ -43,6 +43,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'sophacles/vim-bundle-mako'
+Plugin 'atelierbram/vim-colors_atelier-schemes'
+Plugin 'wellsjo/wells-colorscheme.vim'
+Plugin 'CruizeMissile/Revolution.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

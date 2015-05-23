@@ -42,6 +42,7 @@ Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
+Plugin 'sophacles/vim-bundle-mako'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

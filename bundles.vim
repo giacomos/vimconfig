@@ -39,8 +39,9 @@ Plugin 'wincent/Command-T'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
 Plugin 'bling/vim-airline'
-Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -84,5 +84,5 @@ set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
 
 set list
 set pastetoggle=<F2>
-colorscheme wombat256mod       " set default colorscheme
+colorscheme molokai       " set default colorscheme
 

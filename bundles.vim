@@ -8,6 +8,7 @@
 " command line with the following syntax:
 " vim --noplugin -u vim/vundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
 " Filetype off is required by vundle
+set nocompatible                " enable all features. This must be first, because it changes other options as a side effect.
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/.vim/bundle/Vundle.vim
@@ -25,7 +26,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'zedr/zope-snipmate-bundle'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gmarik/sudo-gui.vim'
 Plugin 'scrooloose/nerdtree'
@@ -37,6 +38,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'wincent/Command-T'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
+Plugin 'bling/vim-airline'
+Bundle 'majutsushi/tagbar'
+Bundle 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

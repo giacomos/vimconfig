@@ -42,9 +42,6 @@ map ;[ :bprev<CR>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" add a mapping to NerdTree to SHIFT-n
-map B :NERDTreeToggle<CR>
-
 " Switch line with the one above or below
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
@@ -56,7 +53,6 @@ nmap <silent> <A-Right> :wincmd l<CR>
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>
 nnoremap <leader>t :%s/\s\+$//<CR>
-map <F3> :NERDTreeToggle<CR>
 nnoremap H :set cursorline! cursorcolumn!<CR>
 " Toggle line numbers and fold column for easy copying:
 nnoremap N :set nonumber!<CR>:set foldcolumn=0<CR>

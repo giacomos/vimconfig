@@ -1,6 +1,6 @@
 if neobundle#tap('nerdtree')
   " Highlight the selected entry in the tree
-  nnoremap <silent> <leader><tab> :NERDTreeToggle<cr>
+  nnoremap <silent> <F4> :NERDTreeToggle<cr>
 
   function! neobundle#hooks.on_post_source(bundle)
     " Highlight the selected entry in the tree

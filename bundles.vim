@@ -142,10 +142,10 @@ NeoBundle 'honza/vim-snippets'
 
 " Languages {{{
 " =============
-NeoBundleLazy 'klen/python-mode', {
-      \ 'autoload' : {
-      \   'filetypes' : 'python',
-      \ }}
+" NeoBundleLazy 'klen/python-mode', {
+"       \ 'autoload' : {
+"       \   'filetypes' : 'python',
+"       \ }}
 
 NeoBundleLazy 'sophacles/vim-bundle-mako', {
       \ 'autoload' : {
@@ -233,15 +233,17 @@ NeoBundleLazy 'nelstrom/vim-markdown-folding', {'autoload':{'filetypes':['markdo
 
 " }}}
 
-
 " Syntax checkers {{{
 " ===================
-NeoBundleLazy 'scrooloose/syntastic', {
+NeoBundle 'scrooloose/syntastic', {
       \ 'autoload': {
       \   'insert': 1,
       \ }
       \ }
 " }}}
+
+" NeoBundle 'milkypostman/vim-togglelist'
+NeoBundle 'tmhedberg/SimpylFold'
 
 
 

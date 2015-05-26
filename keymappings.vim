@@ -1,9 +1,17 @@
+" http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29
+" :nmap - Display normal mode maps
+" :imap - Display insert mode maps
+" :vmap - Display visual and select mode maps
+" :smap - Display select mode maps
+" :xmap - Display visual mode maps
+" :cmap - Display command-line mode maps
+" :omap - Display operator pending mode maps
+
 " Inpired by https://github.com/tony/vim-config/blob/master/keymappings.vim
+
+
 let mapleader="\\"             " Change leader to a \
 
-
-" <Leader>2: Toggle Tagbar
-nnoremap <silent> <Leader>2 :TagbarToggle<cr>
 
 " <Leader>4: Toggle between paste mode
 nnoremap <silent> <leader>4 :set paste!<cr>
@@ -26,8 +34,8 @@ nnoremap <silent> <leader>6 :call NumberRelativeToggle()<CR>
 nnoremap <silent> <Leader>p :let @+=expand("%:p")<cr>:echo "Copied current file
       \ path '".expand("%:p")."' to clipboard"<cr>
 
-" Q: Closes the window
-nnoremap Q :qa<cr>
+" Closes all windows
+nnoremap <silent> <C-d> :qa<cr>
 
 " Tab: Indent
 xmap <Tab> >
@@ -43,18 +51,28 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Switch line with the one above or below
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
+nmap <C-k> ddkP
+nmap <C-j> ddp
+
 " Easier window movement using ALT+<arrows>
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 " Use <leader>l to toggle display of whitespace
-nmap <leader>l :set list!<CR>
 nnoremap <leader>t :%s/\s\+$//<CR>
 nnoremap H :set cursorline! cursorcolumn!<CR>
 " Toggle line numbers and fold column for easy copying:
-nnoremap N :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <silent> <F6> :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <silent> <F7> :set list!<CR>
 cmap w!! %!sudo tee > /dev/null %
 nmap <leader>c m`b~``<CR>
+
+" Fold all code
+nnoremap <space> za
+" Fold this class/method
+vnoremap <space> zf
+
+" Jump to next location list entry, used by syntastic for error listing
+nnoremap <silent> <leader>[ :lr<cr>
+nnoremap <silent> <leader>] :lnext<cr>

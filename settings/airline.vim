@@ -12,4 +12,6 @@ if neobundle#tap('vim-airline')
     let g:airline#extensions#tabline#buffer_min_count = 2
     let g:airline#extensions#tabline#left_sep = ''
 
+    let g:airline#extensions#syntastic#enabled = 1
+
 endif

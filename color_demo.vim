@@ -1,4 +1,7 @@
-let num = 255
+" To use this: :so color_demo.vim   ref.
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+
+let num = 255
 while num >= 0
     exec 'hi col_'.num.' ctermbg='.num.' ctermfg=white'
     exec 'syn match col_'.num.' "ctermbg='.num.':...." containedIn=ALL'

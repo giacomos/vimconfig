@@ -44,21 +44,18 @@ xmap <Tab> >
 xmap <s-tab> <
 
 map ;] :bnext<CR>
+noremap <Home> :bnext<CR>
 map ;[ :bprev<CR>
+noremap <End> :bnext<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Switch line with the one above or below
-nmap <C-k> ddkP
-nmap <C-j> ddp
+nmap <A-k> ddkP
+nmap <A-j> ddp
 
-" Easier window movement using ALT+<arrows>
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
 " Use <leader>l to toggle display of whitespace
 nnoremap <leader>t :%s/\s\+$//<CR>
 nnoremap H :set cursorline! cursorcolumn!<CR>
@@ -76,3 +73,9 @@ vnoremap <space> zf
 " Jump to next location list entry, used by syntastic for error listing
 nnoremap <silent> <leader>[ :lr<cr>
 nnoremap <silent> <leader>] :lnext<cr>
+
+" More natural movement between window splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

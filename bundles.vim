@@ -81,7 +81,8 @@ NeoBundleLazy 'vim-scripts/closetag.vim'  "  messes up python docstrings
 
 
 " Disable plugins for LargeFile
-NeoBundleLazy 'vim-scripts/LargeFile'
+NeoBundle 'vim-scripts/LargeFile'
+NeoBundle 'sjl/gundo.vim'
 
 " }}}
 
@@ -242,8 +243,9 @@ NeoBundle 'scrooloose/syntastic', {
       \ }
 " }}}
 
-" NeoBundle 'milkypostman/vim-togglelist'
-NeoBundle 'tmhedberg/SimpylFold'
+NeoBundle 'milkypostman/vim-togglelist'
+NeoBundle 'mfukar/robotframework-vim'
+" NeoBundle 'tmhedberg/SimpylFold'
 
 
 
@@ -269,12 +271,14 @@ NeoBundleLazy 'justinmk/vim-syntax-extra'
 
 NeoBundleLazy 'Lokaltog/vim-easymotion'
 NeoBundle 'CruizeMissile/Revolution.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 
-
+NeoBundle 'floobits/floobits-neovim'
+NeoBundle 'mattn/emmet-vim'
 
 if executable('git')
 
-  NeoBundleLazy 'airblade/vim-gitgutter'
+  NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'tpope/vim-fugitive', {
         \ 'autoload' : {'commands':
         \   ['Gwrite', 'Gcommit', 'Gmove', 'Ggrep', 'Gbrowse', 'Glog',

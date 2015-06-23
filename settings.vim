@@ -1,6 +1,7 @@
 set nocompatible                " enable all features. This must be first, because it changes other options as a side effect.
 " set autoindent                  " guess indentation
-set autowrite                   " write before hiding a buffer
+" set autowrite                   " write before hiding a buffer
+set hidden                      " do not loose history while switching b/w buffers
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set backupdir=~/.tmp            " set the default directory for backup/swap files (*~)
 set noswapfile                  " do not use swap files!
@@ -87,4 +88,10 @@ set pastetoggle=<F2>
 "colorscheme molokai       " set default colorscheme
 
 " colorscheme wells-colors
-colorscheme Revolution
+"colorscheme Revolution
+syntax enable
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_contrast = "high"
+let g:solarized_visibility= "high"

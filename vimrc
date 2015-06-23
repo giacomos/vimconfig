@@ -85,18 +85,18 @@ let g:flake8_ignore="E501,E128,E702"
 let g:flake8_max_complexity=10
 map <leader>g :GundoToggle<CR>
 
-"" Add the virtualenv's site-packages to vim path
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir,
-    'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
+" "" Add the virtualenv's site-packages to vim path
+" py << EOF
+" import os.path
+" import sys
+" import vim
+" if 'VIRTUAL_ENV' in os.environ:
+"     project_base_dir = os.environ['VIRTUAL_ENV']
+"     sys.path.insert(0, project_base_dir)
+"     activate_this = os.path.join(project_base_dir,
+"     'bin/activate_this.py')
+"     execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when xterm-keys is on

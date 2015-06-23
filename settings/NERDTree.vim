@@ -1,8 +1,8 @@
-if neobundle#tap('nerdtree')
+" if neobundle#tap('nerdtree')
   " Highlight the selected entry in the tree
   nnoremap <silent> <F4> :NERDTreeToggle<cr>
 
-  function! neobundle#hooks.on_post_source(bundle)
+  " function! neobundle#hooks.on_post_source(bundle)
     " Highlight the selected entry in the tree
     let NERDTreeHighlightCursorline=1
 
@@ -18,7 +18,7 @@ if neobundle#tap('nerdtree')
     " See ignore.vim
 
     let g:NERDTreeWinSize = 31
-  endfunction
+  " endfunction
 
-  call neobundle#untap()
-endif
+  " call neobundle#untap()
+" endif

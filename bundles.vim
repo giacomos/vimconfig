@@ -275,6 +275,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'floobits/floobits-neovim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'digitaltoad/vim-jade'
+
 
 if executable('git')
 

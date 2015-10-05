@@ -83,7 +83,7 @@ endif
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
 
-set list
+" set list
 set pastetoggle=<F2>
 "colorscheme molokai       " set default colorscheme
 

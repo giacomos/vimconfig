@@ -44,9 +44,7 @@ xmap <Tab> >
 xmap <s-tab> <
 
 map ;] :bnext<CR>
-noremap <Home> :bnext<CR>
 map ;[ :bprev<CR>
-noremap <End> :bnext<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>

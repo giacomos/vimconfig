@@ -19,14 +19,16 @@ let g:syntastic_style_error_symbol = '✗s'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '⚠s'
 
+let g:syntastic_css_csslint_args = '--ignore="important"'
+
 " autocmd VimEnter,Colorscheme * :hi SyntasticErrorLine ctermbg=124
 " autocmd VimEnter,Colorscheme * :hi SyntasticErrorLine ctermfg=231
 "
 " autocmd VimEnter,Colorscheme * :hi SyntasticStyleErrorLine ctermbg=0
 " " autocmd VimEnter,Colorscheme * :hi SyntasticStyleErrorLine ctermfg=231
 
-autocmd VimEnter,Colorscheme * :hi SyntasticWarningLine ctermbg=208
-autocmd VimEnter,Colorscheme * :hi SyntasticWarningLine ctermfg=231
+" autocmd VimEnter,Colorscheme * :hi SyntasticWarningLine ctermbg=208
+" autocmd VimEnter,Colorscheme * :hi SyntasticWarningLine ctermfg=231
 
 set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}

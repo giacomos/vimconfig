@@ -1,5 +1,4 @@
 set nocompatible                " enable all features. This must be first, because it changes other options as a side effect.
-" set autoindent                  " guess indentation
 " set autowrite                   " write before hiding a buffer
 set hidden                      " do not loose history while switching b/w buffers
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
@@ -27,10 +26,11 @@ set textwidth=0                 " don't wrap words
 set undolevels=1000             " 1000 undo levels
 set wildchar=<Tab>              " Expand the command line using tab
 set wildmenu                    " Show list instead of just completing
+" set clipboard=unnamedplus
 
 " ================ Indentation ======================
 
-" set autoindent
+" set autoindent                  " guess indentation
 " set smartindent
 set smarttab
 set shiftwidth=4                " (Auto)indent uses 4 characters
@@ -85,13 +85,14 @@ set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
 
 " set list
 set pastetoggle=<F2>
-"colorscheme molokai       " set default colorscheme
 
-" colorscheme wells-colors
-"colorscheme Revolution
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme solarized       " set default colorscheme
 let g:solarized_termcolors=256
 let g:solarized_contrast = "high"
 let g:solarized_visibility= "high"
+
+highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+highlight ColorColumn ctermbg=DarkGray ctermfg=154

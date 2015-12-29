@@ -9,6 +9,11 @@ if !exists('s:loaded_my_vimrc')
     exe 'source' fpath
   endfor
   source ~/.vim/ignore.vim
+
+  if filereadable(expand("~/.vim/local.vim"))
+    source ~/.vim/local.vim
+  endif
+
 endif
 
 " ================ Persistent Undo ==================
@@ -20,11 +25,11 @@ endif
 "  set undofile
 "endif
 
-"" change cursor color in insert-mode
-"if &term =~ "xterm"
-"    let &t_SI = "\<Esc>]12;orange\x7"
-"    let &t_EI = "\<Esc>]12;white\x7"
-"endif
+" change cursor color in insert-mode
+if &term =~ '^screen'
+   let &t_SI = "\<Esc>]12;red\x7"
+   let &t_EI = "\<Esc>]12;white\x7"
+endif
 
 " Show the differences between the current buffer and the original opened file
 if !exists(":DiffOrig")
@@ -45,34 +50,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
 "  set hlsearch
 endif
-
-
-" highlight char after the 80 column
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" if exists('+colorcolumn')
-"    set colorcolumn=81
-" else
-  highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
-  match OverLength /\%81v.\+/
-  highlight ColorColumn ctermbg=DarkGray ctermfg=154
-"endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-snippets config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Snippets variables
-let g:snips_author='Giacomo Spettoli'
-let g:author='Giacomo Spettoli'
-let g:snips_email= 'giacomo.spettoli@gmail.com'
-let g:email='giacomo.spettoli@gmail.com'
-let g:snips_github='https://github.com/giacomos'
-let g:github='https://github.com/giacomos'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
 
 "Invisible character colors
 highlight NonText guifg=#4a4a59

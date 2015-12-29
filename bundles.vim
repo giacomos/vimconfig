@@ -1,8 +1,5 @@
 " bundles.vim credit: https://github.com/klen/.vim/blob/master/bundle.vim
 
-set nocompatible
-filetype off
-
 " Setting up Vundle - the vim plugin bundler
 " Credit:  http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 let iCanHazNeoBundle=1
@@ -71,6 +68,7 @@ NeoBundleLazy 'tpope/vim-endwise'
 NeoBundleLazy 'tpope/vim-surround'
 
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'rking/ag.vim'
 "NeoBundleLazy 'tony/vim-multiple-cursors', { 'rev': 'quit-multiple-cursors' }
 
 

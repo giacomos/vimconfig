@@ -64,9 +64,9 @@ cmap w!! %!sudo tee > /dev/null %
 nmap <leader>c m`b~``<CR>
 
 " Fold all code
-nnoremap <space> za
+" nnoremap <space> za
 " Fold this class/method
-vnoremap <space> zf
+" vnoremap <space> zf
 
 " Jump to next location list entry, used by syntastic for error listing
 nnoremap <silent> <leader>[ :lr<cr>

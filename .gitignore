@@ -2,6 +2,7 @@ doc/tags
 .netrwhist
 bundle/*
 sessions
+local.vim
 
 .netrwhist
 *.swp

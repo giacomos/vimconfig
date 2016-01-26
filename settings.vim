@@ -79,6 +79,7 @@ endif
 " like this
 " }}}
 "set foldmethod=marker
+set foldmethod=syntax
 
 "set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 set statusline=%F%m%r%h%w\ %y\ [row=%l/%L]\ [col=%02v]\ [%02p%%]\
@@ -89,6 +90,9 @@ set pastetoggle=<F2>
 syntax enable
 set background=dark
 colorscheme solarized       " set default colorscheme
+" since most of the terminal emulator don't have true color support
+" this will force the solarized theme to fallback that uses just the
+" available 256 colors
 let g:solarized_termcolors=256
 let g:solarized_contrast = "high"
 let g:solarized_visibility= "high"
@@ -96,3 +100,8 @@ let g:solarized_visibility= "high"
 highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 highlight ColorColumn ctermbg=DarkGray ctermfg=154
+
+" step 2: font configuration
+" " These are the basic settings to get the font to work (required):
+" set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set encoding=utf-8

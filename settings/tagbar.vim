@@ -13,6 +13,8 @@ if neobundle#tap('tagbar')
         \ 'scope2kind': { 'header': 'h' }
         \ }
 
+    let g:tagbar_singleclick = 1
+
     " Toggle tagbar
     nnoremap <silent> <F3> :TagbarToggle<CR>
 

@@ -1,4 +1,7 @@
 " Don't reset twice on reloading - 'compatible' has SO many side effects.
+
+set encoding=utf8
+
 if !exists('s:loaded_my_vimrc')
   source ~/.vim/bundles.vim
   source ~/.vim/keymappings.vim

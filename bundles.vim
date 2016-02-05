@@ -57,6 +57,8 @@
     NeoBundle 'garbas/vim-snipmate'
     NeoBundle 'honza/vim-snippets'
 
+    NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
+
     " features
     NeoBundleLazy 'nathanaelkane/vim-indent-guides' " color indentation
     " NeoBundleLazy 'scrooloose/nerdcommenter'

@@ -73,6 +73,7 @@
     " Adds filetype glyphs (icons) to other plugins such as NERDTree,
     " vim-airline, CtrlP, powerline, unite, lightline.vim, vim-startify,
     NeoBundle 'ryanoasis/vim-devicons'
+    NeoBundle 'unite.vim'
 " }}}
 
 " GO LANG {{{

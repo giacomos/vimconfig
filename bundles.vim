@@ -281,7 +281,7 @@ NeoBundleLazy 'Rykka/riv.vim', {
 " https://github.com/Rykka/riv.vim/issues/42
 NeoBundleLazy 'justinmk/vim-syntax-extra'
 
-NeoBundle 'floobits/floobits-neovim'
+" NeoBundle 'floobits/floobits-neovim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'digitaltoad/vim-jade'
 " Vim script for text filtering and alignment

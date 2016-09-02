@@ -90,12 +90,14 @@ set pastetoggle=<F2>
 syntax enable
 set background=dark
 colorscheme solarized       " set default colorscheme
+" colorscheme default
 " since most of the terminal emulator don't have true color support
 " this will force the solarized theme to fallback that uses just the
 " available 256 colors
+colorscheme default
 let g:solarized_termcolors=256
-let g:solarized_contrast = "high"
-let g:solarized_visibility= "high"
+" let g:solarized_contrast = "high"
+" let g:solarized_visibility= "high"
 
 highlight OverLength ctermbg=blue ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
